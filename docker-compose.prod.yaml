@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    next-app:
+        container_name: next_prod
+        build: 
+            context: ./
+            dockerfile: ./.docker/Dockerfile.prod
+        ports: 
+            - ${EXTERNAL_PORT}:3000

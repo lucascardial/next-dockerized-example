@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    next-app:
+        build: 
+            context: ./
+            dockerfile: ./.docker/Dockerfile
+        ports: 
+            - ${EXTERNAL_PORT}:3000
+        volumes:
+            - ./:/var/www
+        command: npm run dev

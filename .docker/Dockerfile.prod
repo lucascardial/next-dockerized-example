@@ -1,0 +1,10 @@
+FROM node:14-alpine as next_ssr
+# Setting working directory. All the path will be relative to WORKDIR
+WORKDIR /var/www
+# Installing dependencies
+COPY ./package*.json ./
+RUN npm install
+# Copying source files
+COPY ./ .
+RUN npm run build
+CMD ["node", "server.js"]
